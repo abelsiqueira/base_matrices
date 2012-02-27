@@ -1,0 +1,5 @@
+14/01/11 - Added config.mk
+11/01/11 - Changed base_dense assignment operator to smarter one
+11/01/11 - Added tests
+22/12/10 - Changed default dense norm to Frobenius norm
+09/12/10 - Added Long Int support

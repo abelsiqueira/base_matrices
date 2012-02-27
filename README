@@ -1,0 +1,86 @@
+-----------------------------------------------------------
+base_matrices: ver 0.6.2.2
+February 26th, 2012
+
+Universidade Estadual de Campinas - UNICAMP
+Abel Soares Siqueira - abel.s.siqueira@gmail.com
+-----------------------------------------------------------
+
+Installation
+-----------------------------------------------------------
+
+  Instruction in the file INSTALL
+
+Overview
+-----------------------------------------------------------
+  The base_matrices library consists of a group of classes
+to wrap the C routines and structs from CHOLMOD. These
+classes were designed to provide an easier access to
+CHOLMOD without changing much of the sintax. Note, however,
+that this is meant to be used as a basis for more specific
+classes.
+
+  Not all functions from CHOLMOD were made in the classes,
+only the primary ones, and the ones from the Core module.
+These functions were created as member functions for the
+classes of base_matrices.
+  The classes are:
+
+    - base_common:   To replace   cholmod_common
+    - base_sparse:   To replace   cholmod_sparse
+    - base_dense:    To replace   chomod_dense
+    - base_factor:   To replace   cholmod_factor
+    - base_triplet:  To replace   cholmod_triplet
+
+  The functions that should return a specific type, now
+are implemented as member functions of that type. The
+functions naming where following the cholmod original,
+removing 'cholmod', 'common', 'sparse', 'dense', 'factor',
+'triplet', and some minor changes may appear.
+
+  Since every sparse, triplet, dense and factor must be 
+associated with a common object, all constructors have to 
+pass a common object (with exception of the copy 
+constructor).
+
+License
+-----------------------------------------------------------
+Licensed by GNU GPL - See LICENSE
+
+Changes
+-----------------------------------------------------------
+Ver - 0.6.2.2
+- Cleaned a little
+- First git version
+
+Ver - 0.6.2.1
+- Fixed base_dense::scale(double = 1.0)
+
+Ver - 0.6.2
+- Added support for factorization of A*A' + beta*I ( CHOLMOD's factorize_p )
+
+Ver - 0.6.1
+- Fixed minor bugs
+
+Ver - 0.6.0
+- Added long int support
+- Changed default dense norm to Frobenius norm
+- Fixed base_dense assignment operator
+- Added tests and config.mk
+
+Ver - 0.5.0
+- added get_nrow, get_ncol to base_dense
+- added speye functions with base_dense input parameter
+- changed operator+, operator-, and created operator*
+- added protected get_cholmod_common, to allow access of this pointes to derived classes
+- added base_dense::saxpy function
+- added protected return cholmod structures for classes
+- changed BASEMATRICESLIB
+
+Ver - 0.4.0
+- Changed file organization system for external libraries.
+- Changed the README, Install, Makefile, make.inc, and de-
+ leted (now) useless files.
+
+Ver - 0.3.0
+- Pratically first functional version.
