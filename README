@@ -1,5 +1,5 @@
 -----------------------------------------------------------
-base_matrices: ver 0.6.2.2
+base_matrices: ver 0.6.2.3
 February 26th, 2012
 
 Universidade Estadual de Campinas - UNICAMP
@@ -8,7 +8,6 @@ Abel Soares Siqueira - abel.s.siqueira@gmail.com
 
 Installation
 -----------------------------------------------------------
-
   Instruction in the file INSTALL
 
 Overview
@@ -49,6 +48,9 @@ Licensed by GNU GPL - See COPYING
 
 Changes
 -----------------------------------------------------------
+Ver - 0.6.2.3
+- Clarified the Installation (hopefully)
+
 Ver - 0.6.2.2
 - Cleaned a little
 - First git version

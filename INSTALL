@@ -1,4 +1,6 @@
-To install base_matrices
+If you are installing this as a dependency to dcicpp, please follow the instruction in that folder.
+
+To install base_matrices:
 
 Download everything here in the same place. We used the folder Libraries in the home folder. You can add a variable in your bashrc to this place or add the library path manually.
 
@@ -53,6 +55,40 @@ Go to each folder AMD, CAMD, COLAMD, CCOLAMD and CHOLMOD (this must be last) and
 $ make
 
 - base_matrices
+
+add the following lines, editing to reflect your configuration, to the file $HOME/.bashrc
+
+export GOTOBLASDIR="$HOME/Libraries/GotoBLAS2"
+export GOTOBLASLIBS="$GOTOBLASDIR/libgoto2.a $GOTOBLASDIR/libgoto2.so -lgfortran -lgfortranbegin"
+
+LIBSDIR="$HOME/Libraries"
+METISDIR="${LIBSDIR}/metis"
+TIMDAVISDIR="${LIBSDIR}"
+CHOLMODDIR="$TIMDAVISDIR/CHOLMOD"
+AMDDIR="$TIMDAVISDIR/AMD"
+CAMDDIR="$TIMDAVISDIR/CAMD"
+COLAMDDIR="$TIMDAVISDIR/COLAMD"
+CCOLAMDDIR="$TIMDAVISDIR/CCOLAMD"
+UFCONFIGDIR="$TIMDAVISDIR/UFconfig"
+BMDIR="$LIBSDIR/base_matrices"
+
+TIMDAVISLIB="$CHOLMODDIR/Lib:$AMDDIR/Lib:$CAMDDIR/Lib:$COLAMDDIR/Lib:$CCOLAMDDIR/Lib"
+METISLIB="$METISDIR"
+BMLIB="$BMDIR/Lib"
+
+TIMDAVISI="$CHOLMODDIR/Include:$UFCONFIGDIR"
+METISI="$METISDIR/Lib"
+BMI="$BMDIR/Include"
+
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$TIMDAVISLIB:$METISLIB:$BMLIB:$GOTOBLASDIR"
+export LIBRARY_PATH="$LD_LIBRARY_PATH:$TIMDAVISLIB:$METISLIB:$BMLIB:$GOTOBLASDIR"
+export LIBPATH="$LD_LIBRARY_PATH:$TIMDAVISLIB:$METISLIB:$BMLIB:$GOTOBLASDIR"
+export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:$TIMDAVISI:$METISI:$BMI"
+export C_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:$TIMDAVISI:$METISI:$BMI"
+export INCLUDE_PATH="$CPLUS_INCLUDE_PATH:$TIMDAVISI:$METISI:$BMI"
+
+Open a new terminal or use the command 
+$ source $HOME/.bashrc
 
 if needed, edit make.inc and do
 
