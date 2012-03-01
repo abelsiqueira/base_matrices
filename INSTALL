@@ -14,13 +14,6 @@ http://www.cise.ufl.edu/research/sparse/UFconfig/current/UFconfig.tar.gz
 
 - Metis
 http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-5.0.2.tar.gz
-If compiling for 32 bits (for the dcicpp testing with CUTEr), you will need to add -m32 to the compiler. Edit the file 
-
-GKlib/GKlibSystem.cmake
-
-and add -m32 to the line 31. It should become
-
-set(GKlib_COPTIONS "{GKlib_COPTIONS} -m32 -std=c99 -fno-strict-aliasing")
 
 - Goto BLAS
 Go to the site
@@ -39,6 +32,14 @@ $ make BINARY=32 TARGET=CORE2
 
 INSTALL Metis:
 
+If compiling for 32 bits (for the dcicpp testing with CUTEr), you will need to add -m32 to the compiler. Edit the file 
+
+GKlib/GKlibSystem.cmake
+
+and add -m32 to the line 31. It should become
+
+set(GKlib_COPTIONS "{GKlib_COPTIONS} -m32 -std=c99 -fno-strict-aliasing")
+
 $ make config
 $ make
 # make install
@@ -46,7 +47,7 @@ $ make
 INSTALL CHOLMOD and dependencies
 
 Edit UFconfig/UFconfig.mk
-- Add -m32 to CFLAGS and F77FLAGS
+- Add -m32 to CF and F77FLAGS
 
 - Comment lines
     BLAS = -lblas -lgfortran
@@ -71,7 +72,7 @@ export GOTOBLASDIR="$HOME/Libraries/GotoBLAS2"
 export GOTOBLASLIBS="$GOTOBLASDIR/libgoto2.a $GOTOBLASDIR/libgoto2.so -lgfortran -lgfortranbegin"
 
 LIBSDIR="$HOME/Libraries"
-METISDIR="${LIBSDIR}/metis"
+METISDIR="${LIBSDIR}/metis-5.0.2"
 TIMDAVISDIR="${LIBSDIR}"
 CHOLMODDIR="$TIMDAVISDIR/CHOLMOD"
 AMDDIR="$TIMDAVISDIR/AMD"
@@ -89,12 +90,12 @@ TIMDAVISI="$CHOLMODDIR/Include:$UFCONFIGDIR"
 METISI="$METISDIR/Lib"
 BMI="$BMDIR/Include"
 
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$TIMDAVISLIB:$METISLIB:$BMLIB:$GOTOBLASDIR"
-export LIBRARY_PATH="$LD_LIBRARY_PATH:$TIMDAVISLIB:$METISLIB:$BMLIB:$GOTOBLASDIR"
-export LIBPATH="$LD_LIBRARY_PATH:$TIMDAVISLIB:$METISLIB:$BMLIB:$GOTOBLASDIR"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib:$TIMDAVISLIB:$METISLIB:$BMLIB:$GOTOBLASDIR"
+export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib:$TIMDAVISLIB:$METISLIB:$BMLIB:$GOTOBLASDIR"
+export LIBPATH="$LIBPATH:/usr/local/lib:$TIMDAVISLIB:$METISLIB:$BMLIB:$GOTOBLASDIR"
 export CPLUS_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:$TIMDAVISI:$METISI:$BMI"
-export C_INCLUDE_PATH="$CPLUS_INCLUDE_PATH:$TIMDAVISI:$METISI:$BMI"
-export INCLUDE_PATH="$CPLUS_INCLUDE_PATH:$TIMDAVISI:$METISI:$BMI"
+export C_INCLUDE_PATH="$C_INCLUDE_PATH:$TIMDAVISI:$METISI:$BMI"
+export INCLUDE_PATH="$INCLUDE_PATH:$TIMDAVISI:$METISI:$BMI"
 
 Open a new terminal or use the command 
 $ source $HOME/.bashrc

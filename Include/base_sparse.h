@@ -22,7 +22,7 @@ namespace base_matrices {
   class base_sparse {
     public:
       base_sparse (); //Not defined, because not allowed!
-      base_sparse (const base_common &, size_t = 0, size_t = 0, size_t = 0, int = 0, int = 0, int = 0, int = CHOLMOD_REAL);
+      base_sparse (const base_common &, size_t = 0, size_t = 0, size_t = 0, int = 1, int = 1, int = 0, int = CHOLMOD_REAL);
       base_sparse (const base_common &, std::string, size_t, size_t, size_t, int = CHOLMOD_REAL);
       base_sparse (const base_sparse &);
       void operator= (const base_sparse &);
