@@ -37,16 +37,29 @@ int main (void) {
   base_dense r(c);
 
   c.useSimplicial();
+//  c.useSupernodal();
 
   A.read(stdin); //reads from stdin 
   A.print("A");
+
+  cout << "A = " << endl;
+  full(A).print_more();
 
   //creates b = [1 1 ... 1]' compatible with A
   base_dense b(c, "ones", A.get_nrow(), 1); 
 
   L.analyze(A); //Analyze A to make factorization
   L.factorize(A); //Factorize A into L
+
+  cout << endl;
+  cout << "L = " << endl;
+  full(L).print_more();
+
   x.solve(CHOLMOD_A,L,b); //Solve the system Ax = b, using L
+
+  cout << endl;
+  cout << "x = " << endl;
+  x.print_more ();
   r = b; 
   r.sdmult (A, 0, one, m1, x); //r <- one * A*x + m1 *r = Ax - b
   cout << "|Ax - b| = " << r.norm() << endl << endl;

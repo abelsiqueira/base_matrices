@@ -23,6 +23,9 @@ all: $(EXEC)
 	$(VAL) $(VALFLAGS) ./test4 < Matrix/test.mtxnvec
 	$(VAL) $(VALFLAGS) ./test_dense
 
+ldl: ldl.cpp $(LIBSHORT)
+	$(CXX) -o $@ $< $(BASEMATRICESLIB) $(BASEMATRICESI) $(CXXFLAGS)
+
 test1: test1.cpp $(LIBSHORT)
 	$(CXX) -o $@ $< $(BASEMATRICESLIB) $(BASEMATRICESI) $(CXXFLAGS) 
 

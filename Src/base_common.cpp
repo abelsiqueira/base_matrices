@@ -22,6 +22,8 @@ namespace base_matrices {
   base_common::base_common () {
     common = new cholmod_common;
     CHOLMOD(start)(common);
+    common->supernodal = CHOLMOD_SIMPLICIAL;
+    common->final_ll = 0;
   }
 
   base_common::~base_common () {

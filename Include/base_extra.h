@@ -36,10 +36,22 @@ namespace base_matrices {
     return B;
   }
 
+  inline base_sparse factor_to_sparse (const base_factor & L) {
+    base_sparse A( L.get_common () );
+    A.factor_to_sparse (L);
+    return A;
+  }
+
   inline base_dense full (const base_sparse & A) {
     base_dense B( A.get_common () );
     B.sparse_to_dense (A);
     return B;
+  }
+
+  inline base_dense full (base_factor L) {
+    base_dense A( L.get_common () );
+    A.sparse_to_dense ( factor_to_sparse (L) );
+    return A;
   }
 
   inline double norm (const base_dense & A, int n = 2) {

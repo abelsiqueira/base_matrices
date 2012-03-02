@@ -50,6 +50,12 @@ namespace base_matrices {
       
       //Other functions
       void set_error_handler (void (*eh)(int, const char*, int, const char*));
+      void useSimplicial () {
+        common->supernodal = CHOLMOD_SIMPLICIAL;
+      }
+      void useSupernodal () {
+        common->supernodal = CHOLMOD_SUPERNODAL;
+      }
 
       friend class base_sparse;
       friend class base_dense;
