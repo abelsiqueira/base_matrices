@@ -6,7 +6,7 @@ include $(BASEMATRICES_DIR)/config.mk
 
 # Compilation
 CXX = g++
-CXXFLAGS = -O4 -fexceptions -Wall -Werror -Wextra -ggdb $(BMLONG) -m32
+CXXFLAGS = -O4 -fexceptions -Wall -Werror -Wextra -ggdb $(BMLONG) -m64
 
 # Other commands
 RM = rm -f
