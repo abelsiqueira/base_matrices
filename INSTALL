@@ -54,7 +54,7 @@ Edit UFconfig/UFconfig.mk
     LAPACK = -llapack
 
 - Add line
-    BLAS = $(HOME)/Libraries/GotoBLAS2/libgoto2.a $(HOME)/Libraries/GotoBLAS2/libgoto2.so -lgfortran -lgfortranbegin
+    BLAS = -L$(HOME)/Libraries/GotoBLAS2/ -lgoto2 -lgfortran -lgfortranbegin
 
 - Edit the variables METIS_PATH and METIS to reflect your configurations. In our case
     METIS_PATH = $(HOME)/Libraries/metis
