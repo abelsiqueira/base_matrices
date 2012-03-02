@@ -1,5 +1,5 @@
 -----------------------------------------------------------
-base_matrices: ver 0.6.2.3
+base_matrices: ver 0.6.2.4
 February 26th, 2012
 
 Universidade Estadual de Campinas - UNICAMP
@@ -48,6 +48,10 @@ Licensed by GNU GPL - See COPYING
 
 Changes
 -----------------------------------------------------------
+Ver - 0.6.2.4
+- Fixed small thing
+- Added functions to change to supernodal and simplicial
+
 Ver - 0.6.2.3
 - Clarified the Installation (hopefully)
 

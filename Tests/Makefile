@@ -43,6 +43,6 @@ test_dense: test_dense.cpp $(LIBSHORT)
 
 clean:
 	( cd Matrix; make clean )
-	$(RM) $(EXEC)
+	$(RM) $(EXEC) ldl
 
 purge: clean
