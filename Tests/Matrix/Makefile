@@ -7,24 +7,24 @@ default: finelem retgen finelemtriinf
 BASEMATRICES_DIR = ../..
 include $(BASEMATRICES_DIR)/make.inc
 
-finelem: fin_elem
-	./fin_elem 10
+finelem: fin_elem.tst
+	./fin_elem.tst 10
 
-retgen: ret_gen
-	./ret_gen 10
+retgen: ret_gen.tst
+	./ret_gen.tst 10
 
-finelemtriinf: fin_elem_triinf
-	./fin_elem_triinf 10
+finelemtriinf: fin_elem_triinf.tst
+	./fin_elem_triinf.tst 10
 
-fin_elem: fin_elem.cpp
+fin_elem.tst: fin_elem.cpp
 	$(CXX) -o $@ $< $(CXXFLAGS)
 
-ret_gen: ret_gen.cpp
+ret_gen.tst: ret_gen.cpp
 	$(CXX) -o $@ $< $(CXXFLAGS)
 
-fin_elem_triinf: fin_elem_triinf.cpp
+fin_elem_triinf.tst: fin_elem_triinf.cpp
 	$(CXX) -o $@ $< $(CXXFLAGS)
 
 clean:
-	$(RM) fin_elem ret_gen fin_elem_triinf *.mtx
+	$(RM) fin_elem.tst ret_gen.tst fin_elem_triinf.tst *.mtx
 

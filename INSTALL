@@ -54,7 +54,7 @@ Edit UFconfig/UFconfig.mk
     LAPACK = -llapack
 
 - Add line
-    BLAS = -L$(HOME)/Libraries/GotoBLAS2/ -lgoto2 -lgfortran -lgfortranbegin
+    BLAS = -L$(HOME)/Libraries/GotoBLAS2/ -lgoto2 -lgfortran -lgfortranbegin -lpthread
 
 - Edit the variables METIS_PATH and METIS to reflect your configurations. In our case
     METIS_PATH = $(HOME)/Libraries/metis
@@ -69,7 +69,7 @@ $ make all
 add the following lines, editing to reflect your configuration, to the file $HOME/.bashrc
 
 export GOTOBLASDIR="$HOME/Libraries/GotoBLAS2"
-export GOTOBLASLIBS="$GOTOBLASDIR/libgoto2.a $GOTOBLASDIR/libgoto2.so -lgfortran -lgfortranbegin"
+export GOTOBLASLIBS="$GOTOBLASDIR/libgoto2.a $GOTOBLASDIR/libgoto2.so -lgfortran -lgfortranbegin -lpthread"
 
 LIBSDIR="$HOME/Libraries"
 METISDIR="${LIBSDIR}/metis-5.0.2"
