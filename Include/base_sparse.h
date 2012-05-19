@@ -86,6 +86,7 @@ namespace base_matrices {
 
       friend class base_dense;
       friend class base_factor;
+      friend class base_triplet;
     protected:
       cholmod_sparse *sparse;
       const base_common *common;

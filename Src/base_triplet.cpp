@@ -93,6 +93,18 @@ namespace base_matrices {
     common = L.common;
     sparse = CHOLMOD(triplet_to_sparse) (L.triplet, nzmax, common->common);
   }
+
+  void base_triplet::sparse_to_triplet (const base_sparse & A) {
+    if (A.sparse == 0) {
+      A.error (0, "ERROR: base_sparse uninitialized");
+      return;
+    }
+    if (triplet != 0)
+      CHOLMOD(free_triplet) (&triplet, common->common);
+
+    common = A.common;
+    triplet = CHOLMOD(sparse_to_triplet) (A.sparse, common->common);
+  }
   //End
 
   //Other functions
