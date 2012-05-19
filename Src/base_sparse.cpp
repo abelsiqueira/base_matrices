@@ -195,10 +195,11 @@ namespace base_matrices {
       error (178, "ERROR: cannot calculate AAT of uninitialized base_sparse");
       return;
     }
-    if (sparse != 0)
-      CHOLMOD(free_sparse) (&sparse, common->common);
+    cholmod_sparse *tempSparse = sparse;
     common = A.common;
     sparse = CHOLMOD(aat) (A.sparse, fset, size, mode, common->common);
+    if (tempSparse != 0)
+      CHOLMOD(free_sparse) (&tempSparse, common->common);
   }
 
   void base_sparse::copy (const base_sparse & A, int stype, int mode) {
