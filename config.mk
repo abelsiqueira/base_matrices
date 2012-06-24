@@ -7,5 +7,5 @@
 ### Use this file to define some options
 
 # Long version?
-BMLONG = -DDLONG
+BMLONG = -DLONG
 #BMLONG = 

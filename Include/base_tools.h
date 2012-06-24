@@ -11,7 +11,7 @@ namespace base_matrices {
   }
 
 
-#ifdef DLONG
+#ifdef LONG
   typedef long int bmInt;
 #define CHOLMOD(name) cholmod_l_ ## name
 #else
