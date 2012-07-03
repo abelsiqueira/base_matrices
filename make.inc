@@ -2,11 +2,13 @@
 # BASEMATRICES_DIR
 # Also, $HOME/.bashrc must have the definitions of the variables as shown in the INSTALL
 
-include $(BASEMATRICES_DIR)/config.mk
-
-# Compilation
 CXX = g++
-CXXFLAGS = -O4 -fexceptions -Wall -Werror -Wextra -ggdb $(BMLONG) -m32
+
+#BMLONG = -DLONG
+#PROFILE = -pg
+#DEBUG = -ggdb
+
+CXXFLAGS = -O4 -fexceptions -Wall -Werror -Wextra $(DEBUG) $(BMLONG) $(PROFILE)
 
 # Other commands
 RM = rm -f
