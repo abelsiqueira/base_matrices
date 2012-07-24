@@ -5,8 +5,8 @@
 CXX = g++
 
 #BMLONG = -DLONG
-#PROFILE = -pg
-#DEBUG = -ggdb
+PROFILE = -pg
+DEBUG = -ggdb
 
 CXXFLAGS = -O4 -fexceptions -Wall -Werror -Wextra $(DEBUG) $(BMLONG) $(PROFILE)
 
@@ -17,4 +17,6 @@ AR = ar rv
 
 BASEMATRICESLIBNAME = libbasematrices.a
 
-BASEMATRICESLIB = $(BASEMATRICES_DIR)/Lib/$(BASEMATRICESLIBNAME) -lcholmod -lamd -lcolamd -lccolamd -lcamd -lmetis -lgoto2 -lgfortran -lgfortranbegin -lpthread
+BASEMATRICESLIB = $(BASEMATRICES_DIR)/Lib/$(BASEMATRICESLIBNAME) -lcholmod \
+     -lamd -lcolamd -lccolamd -lcamd -lsuitesparseconfig -lmetis -lgoto2 \
+     -lgfortran -lgfortranbegin -lpthread -lrt
