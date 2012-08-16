@@ -358,21 +358,53 @@ namespace base_matrices {
     ptrd px = ptrd(sparse->x);
     ptri pp = ptri(sparse->p);
     ptri pi = ptri(sparse->i);
-    int n = sparse->ncol;
-    int nz = sparse->nzmax;
+    size_t n = sparse->ncol;
+    size_t nz = pp[n];
     outstr << "x = ";
-    for (int i = 0; i < nz; i++)
+    for (size_t i = 0; i < nz; i++)
       outstr << px[i] << " ";
     outstr << "\n";
     outstr << "i = ";
-    for (int i = 0; i < nz; i++)
+    for (size_t i = 0; i < nz; i++)
       outstr << pi[i] << " ";
     outstr << "\n";
     outstr << "p = ";
-    for (int i = 0; i <= n; i++)
+    for (size_t i = 0; i <= n; i++)
       outstr << pp[i] << " ";
     outstr << "\n";
 
+  }
+
+  void base_sparse::print_matlab (std::ostream & outstr) const {
+    if (sparse == 0) {
+      outstr << "base_sparse not initialized\n";
+      return;
+    }
+    double * px = static_cast < double * > (sparse->x);
+    bmInt * pi = static_cast < bmInt * > (sparse->i);
+    bmInt * pp = static_cast < bmInt * > (sparse->p);
+    bmInt nrow = sparse->nrow, ncol = sparse->ncol;
+
+    outstr << "A = [";
+    for (bmInt i = 0; i < nrow; i++) {
+      for  (bmInt j = 0; j < ncol; j++) {
+        bmInt pstart = pp[j], pend = pp[j+1];
+        float val = 0;
+        while (pstart != pend) {
+          if (pi[pstart] == i) {
+            val = px[pstart];
+            break;
+          }
+          pstart++;
+        }
+        outstr << val;
+        if (j < ncol-1)
+          outstr << ',';
+      }
+      if (i < nrow-1)
+        outstr << ";" << std::endl;
+    }
+    outstr << "];" << std::endl;
   }
 
   void base_sparse::error (int line, std::string message) const {

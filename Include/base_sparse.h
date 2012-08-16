@@ -75,6 +75,7 @@ namespace base_matrices {
 
       //Other functions
       void print_more (std::ostream & = std::cout) const;
+      void print_matlab (std::ostream & = std::cout) const;
       size_t get_nrow () const { return sparse->nrow; }
       size_t get_ncol () const { return sparse->ncol; }
       void error (int, std::string) const;
