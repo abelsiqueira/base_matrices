@@ -385,26 +385,15 @@ namespace base_matrices {
     bmInt * pp = static_cast < bmInt * > (sparse->p);
     bmInt nrow = sparse->nrow, ncol = sparse->ncol;
 
-    outstr << "A = [";
-    for (bmInt i = 0; i < nrow; i++) {
-      for  (bmInt j = 0; j < ncol; j++) {
-        bmInt pstart = pp[j], pend = pp[j+1];
-        float val = 0;
-        while (pstart != pend) {
-          if (pi[pstart] == i) {
-            val = px[pstart];
-            break;
-          }
-          pstart++;
-        }
-        outstr << val;
-        if (j < ncol-1)
-          outstr << ',';
+    outstr << "A = sparse(" << nrow << ',' << ncol << ");" << std::endl;
+    for (bmInt j = 0; j < ncol; j++) {
+      bmInt pstart = pp[j], pend = pp[j+1];
+      while (pstart != pend) {
+        outstr << "A(" << pi[pstart]+1 << ',' << j+1 << ") = "
+               << px[pstart] << ';' << std::endl;
+        pstart++;
       }
-      if (i < nrow-1)
-        outstr << ";" << std::endl;
     }
-    outstr << "];" << std::endl;
   }
 
   void base_sparse::error (int line, std::string message) const {
