@@ -5,7 +5,7 @@
 CXX = g++
 
 #BMLONG = -DLONG
-PROFILE = -pg
+#PROFILE = -pg
 DEBUG = -ggdb
 
 CXXFLAGS = -O4 -fexceptions -Wall -Werror -Wextra $(DEBUG) $(BMLONG) $(PROFILE)
