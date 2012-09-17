@@ -145,7 +145,7 @@ namespace base_matrices {
       return;
     }
     if (dense != 0)
-//      CHOLMOD(free_dense) (&dense, common->common);
+      CHOLMOD(free_dense) (&dense, common->common);
     common = L.common;
     dense = CHOLMOD(solve) (sys, L.factor, B.dense, common->common);
   }

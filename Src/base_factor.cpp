@@ -70,6 +70,8 @@ namespace base_matrices {
       error (51, "ERROR: cannot analyze uninitialized base_sparse");
       return;
     }
+    if (factor != 0)
+      CHOLMOD(free_factor) (&factor, common->common);
     factor = CHOLMOD(analyze) (A.sparse, common->common);
   }
 
