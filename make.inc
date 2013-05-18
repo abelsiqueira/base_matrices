@@ -17,6 +17,17 @@ AR = ar rv
 
 BASEMATRICESLIBNAME = libbasematrices.a
 
-BASEMATRICESLIB = $(BASEMATRICES_DIR)/Lib/$(BASEMATRICESLIBNAME) -lcholmod \
-     -lamd -lcolamd -lccolamd -lcamd -lsuitesparseconfig -lmetis -lgoto2 \
-     -lgfortran -lgfortranbegin -lpthread -lrt
+LIBDIR = $(HOME)/Libraries
+
+BLAS = $(LIBDIR)/GotoBLAS2/libgoto2.a -lgfortran -lgfortranbegin -lpthread
+METIS = $(LIBDIR)/metis-4.0.3/libmetis.a
+CHOLMOD = $(LIBDIR)/CHOLMOD/Lib/libcholmod.a $(LIBDIR)/AMD/Lib/libamd.a \
+  $(LIBDIR)/COLAMD/Lib/libcolamd.a $(LIBDIR)/CAMD/Lib/libcamd.a \
+  $(LIBDIR)/CCOLAMD/Lib/libccolamd.a \
+  $(LIBDIR)/SuiteSparse_config/libsuitesparseconfig.a
+
+BASEMATRICESLIB = -L$(BASEMATRICES_DIR)/Lib -lbasematrices $(CHOLMOD) $(METIS) $(BLAS) -lrt
+
+CHOLMODI = -I$(LIBDIR)/CHOLMOD/Include -I$(LIBDIR)/SuiteSparse_config
+CUTERI = -I$(CUTER)/common/include
+I = -I$(LIBDIR)/base_matrices/Include $(CHOLMODI) $(CUTERI)

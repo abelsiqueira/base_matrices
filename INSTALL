@@ -1,3 +1,4 @@
+(This INSTALL is old, but you're probably using this with dcicpp. Follow the INSTALL there.)
 If you are installing this as a dependency to dcicpp, please follow the instruction in that folder.
 
 To install base_matrices:

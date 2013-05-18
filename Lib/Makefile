@@ -21,5 +21,5 @@ purge: clean
 	$(RM) $(BASEMATRICESLIBNAME)
 
 %.o: $(BASEMATRICES_DIR)/Src/%.cpp $(BASEMATRICES_DIR)/Include/%.h
-	$(CXX) -c -o $@ $< $(BASEMATRICESI) $(CXXFLAGS) 
+	$(CXX) -c -o $@ $< $(I) $(CXXFLAGS) 
 

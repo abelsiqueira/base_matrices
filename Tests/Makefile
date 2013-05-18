@@ -24,10 +24,10 @@ all: $(EXEC)
 	$(VAL) $(VALFLAGS) ./test_dense.tst
 
 ldl.tst: ldl.cpp $(LIBSHORT)
-	$(CXX) -o $@ $< $(BASEMATRICESLIB) $(BASEMATRICESI) $(CXXFLAGS)
+	$(CXX) -o $@ $< $(BASEMATRICESLIB) $(I) $(CXXFLAGS)
 
 %.tst: %.cpp $(LIBSHORT)
-	$(CXX) -o $@ $< $(BASEMATRICESLIB) $(BASEMATRICESI) $(CXXFLAGS)
+	$(CXX) -o $@ $< $(BASEMATRICESLIB) $(I) $(CXXFLAGS)
 
 clean:
 	( cd Matrix; make clean )
