@@ -17,10 +17,10 @@ AR = ar rv
 
 BASEMATRICESLIBNAME = libbasematrices.a
 
-LIBDIR = $(HOME)/Libraries
+LIBDIR = $(HOME)/libraries
 
-BLAS = $(LIBDIR)/GotoBLAS2/libgoto2.a -lgfortran -lgfortranbegin -lpthread
-METIS = $(LIBDIR)/metis-4.0.3/libmetis.a
+BLAS = $(LIBDIR)/OpenBLAS/libopenblas.a -lgfortran -lgfortranbegin -lpthread
+METIS = $(LIBDIR)/metis/libmetis.a
 CHOLMOD = $(LIBDIR)/CHOLMOD/Lib/libcholmod.a $(LIBDIR)/AMD/Lib/libamd.a \
   $(LIBDIR)/COLAMD/Lib/libcolamd.a $(LIBDIR)/CAMD/Lib/libcamd.a \
   $(LIBDIR)/CCOLAMD/Lib/libccolamd.a \
