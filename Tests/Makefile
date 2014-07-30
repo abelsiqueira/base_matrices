@@ -7,11 +7,11 @@ default: all
 BASEMATRICES_DIR = ..
 include $(BASEMATRICES_DIR)/make.inc
 
-LIBSHORT = $(BASEMATRICES_DIR)/Lib/$(BASEMATRICESLIBNAME)
+LIBSHORT = $(BASEMATRICES_DIR)/Lib/$(LIBNAME)
 EXEC = test1.tst test2.tst test3.tst test4.tst test_dense.tst
 #VAL = valgrind
 #VALFLAGS = --leak-check=full -v
-VAL = 
+VAL =
 VALFLAGS =
 
 all: $(EXEC)
@@ -24,10 +24,10 @@ all: $(EXEC)
 	$(VAL) $(VALFLAGS) ./test_dense.tst
 
 ldl.tst: ldl.cpp $(LIBSHORT)
-	$(CXX) -o $@ $< $(BASEMATRICESLIB) $(I) $(CXXFLAGS)
+	$(CXX) -o $@ $< $(LIBS) $(I) $(CXXFLAGS)
 
 %.tst: %.cpp $(LIBSHORT)
-	$(CXX) -o $@ $< $(BASEMATRICESLIB) $(I) $(CXXFLAGS)
+	$(CXX) -o $@ $< $(LIBS) $(I) $(CXXFLAGS)
 
 clean:
 	( cd Matrix; make clean )

@@ -30,22 +30,5 @@ purge:
 	(cd Lib; make purge )
 	(cd Tests; make purge )
 
-##### External Libraries
-chollibrary:
-	( cd $(METISDIR)/Lib ; $(MAKE) )
-	( cd $(GOTOBLASDIR) ; $(MAKE) libs netlib shared )
-	( cd $(TIMDAVISDIR)/CHOLMOD ; $(MAKE) library )
-
-choltests:
-	( cd $(METISDIR) ; $(MAKE) )
-	( cd $(GOTOBLASDIR) ; $(MAKE) tests )
-
-cholclean:
-	( cd $(METISDIR) ; $(MAKE) clean )
-	( cd $(GOTOBLASDIR) ; $(MAKE) clean )
-	( cd $(TIMDAVISDIR)/CHOLMOD ; $(MAKE) clean )
-
-cholpurge:
-	( cd $(METISDIR) ; $(MAKE) realclean )
-	( cd $(GOTOBLASDIR) ; $(MAKE) clean )
-	( cd $(TIMDAVISDIR) ; $(MAKE) purge )
+install:
+	$(MAKE) -C Lib install
