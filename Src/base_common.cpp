@@ -58,7 +58,7 @@ namespace base_matrices {
     return CHOLMOD(free_work) (common);
   }
 
-  UF_long base_common::clear_flag () {
+  long base_common::clear_flag () {
     return CHOLMOD(clear_flag) (common);
   }
 

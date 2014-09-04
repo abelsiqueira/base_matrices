@@ -44,7 +44,7 @@ namespace base_matrices {
       size_t maxrank (size_t);
       int allocate_work (size_t, size_t, size_t);
       int free_work ();
-      UF_long clear_flag ();
+      long clear_flag ();
       int error (int, const std::string, int, const std::string) const;
       //End
       

@@ -144,7 +144,7 @@ namespace base_matrices {
     return CHOLMOD(reallocate_sparse) (nznew, sparse, common->common);
   }
 
-  UF_long base_sparse::nnz () const {
+  long base_sparse::nnz () const {
     if (sparse == 0) {
       error (132, "ERROR: base_sparse is uninitialized");
       return 0;
@@ -171,7 +171,7 @@ namespace base_matrices {
     return CHOLMOD(sort) (sparse, common->common);
   }
 
-  void base_sparse::band (const base_sparse & A, UF_long k1, UF_long k2, int mode) {
+  void base_sparse::band (const base_sparse & A, long k1, long k2, int mode) {
     if (A.sparse == 0) {
       error (159, "ERROR: cannot extract band from uninitialized base_sparse");
       return;
@@ -182,7 +182,7 @@ namespace base_matrices {
     sparse = CHOLMOD(band) (A.sparse, k1, k2, mode, common->common);
   }
 
-  int base_sparse::band_inplace (UF_long k1, UF_long k2, int mode) {
+  int base_sparse::band_inplace (long k1, long k2, int mode) {
     if (sparse == 0) {
       error (170, "ERROR: cannot extract band from uninitialized base_sparse");
       return 0;
@@ -308,7 +308,7 @@ namespace base_matrices {
     sparse = CHOLMOD(ssmult) (A.sparse, B.sparse, stype, values, sorted, common->common);
   }
 
-  void base_sparse::submatrix (const base_sparse & A, bmInt *rset, UF_long rsize, bmInt *cset, UF_long csize, int values, int sorted) {
+  void base_sparse::submatrix (const base_sparse & A, bmInt *rset, long rsize, bmInt *cset, long csize, int values, int sorted) {
     if (A.sparse == 0) {
       error (274, "ERROR: cannot extract submatrix from uninitialized base_sparse");
       return;

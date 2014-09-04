@@ -44,11 +44,11 @@ namespace base_matrices {
 
       //CHOLMOD Core functions
       int reallocate (size_t);
-      UF_long nnz () const;
+      long nnz () const;
       void transpose (const base_sparse &, int = 2);
       int sort ();
-      void band (const base_sparse &, UF_long, UF_long, int);
-      int band_inplace (UF_long, UF_long, int);
+      void band (const base_sparse &, long, long, int);
+      int band_inplace (long, long, int);
       void aat (const base_sparse &, bmInt * = 0, size_t = 0, int = 1);
       void copy (const base_sparse &, int, int);
       void add (const base_sparse &, const base_sparse &, double = 1, double = 1, int = 1, int = 0);
@@ -68,7 +68,7 @@ namespace base_matrices {
       void horzcat (const base_sparse &, const base_sparse &, int = 1);
       int scale (base_dense &, int);
       void ssmult (const base_sparse &, const base_sparse &, int = 0, int = 1, int = 0);
-      void submatrix (const base_sparse &, bmInt *, UF_long, bmInt *, UF_long, int = 1, int = 0);
+      void submatrix (const base_sparse &, bmInt *, long, bmInt *, long, int = 1, int = 0);
       void vertcat (const base_sparse &, const base_sparse &, int = 1);
       int symmetry (int, bmInt *, bmInt *, bmInt *, bmInt *);
       //End

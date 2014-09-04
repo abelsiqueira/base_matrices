@@ -160,7 +160,7 @@ namespace base_matrices {
     return B;
   }
 
-  inline base_sparse band (const base_sparse & A, UF_long k1, UF_long k2, int mode) {
+  inline base_sparse band (const base_sparse & A, long k1, long k2, int mode) {
     base_sparse B( A.get_common() );
     B.band (A, k1, k2, mode);
     return B;
@@ -212,7 +212,7 @@ namespace base_matrices {
     return ssmult (A, X);
   }
 
-  inline base_sparse submatrix (const base_sparse & A, bmInt *rset, UF_long rsize, bmInt *cset, UF_long csize, int values = 1, int sorted = 0) {
+  inline base_sparse submatrix (const base_sparse & A, bmInt *rset, long rsize, bmInt *cset, long csize, int values = 1, int sorted = 0) {
     base_sparse B( A.get_common() );
     B.submatrix (A, rset, rsize, cset, csize, values, sorted);
     return B;

@@ -114,8 +114,8 @@ namespace base_matrices {
       return;
     }
     double * px = static_cast < double * > (triplet->x);
-    UF_long * pi = static_cast < UF_long * > (triplet->i);
-    UF_long * pj = static_cast < UF_long * > (triplet->j);
+    long * pi = static_cast < long * > (triplet->i);
+    long * pj = static_cast < long * > (triplet->j);
     size_t nnz = triplet->nnz;
 
     for (size_t i = 0; i < nnz; i++) {
