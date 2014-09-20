@@ -51,6 +51,7 @@ namespace base_matrices {
       size_t get_ncol () const { return dense->ncol; }
       double dot (const base_dense &) const;
       void print_more (std::ostream & = std::cout) const;
+      void print_matlab (std::ostream & = std::cout) const;
       void saxpy (const base_dense &, double);
       void scale (const base_dense &, double);
       void scale (double);

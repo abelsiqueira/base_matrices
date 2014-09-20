@@ -287,6 +287,26 @@ namespace base_matrices {
     }
   }
 
+  void base_dense::print_matlab (std::ostream & outstr) const {
+    if (dense == 0) {
+      outstr << "base_dense not initialized\n";
+      return;
+    }
+    typedef double * ptrd;
+    ptrd p = ptrd(dense->x);
+    int m = dense->nrow, n = dense->ncol;
+    int d = dense->d;
+    outstr << "A = [";
+    for (int i = 0; i < m; i++) {
+      for (int j = 0; j < n; j++) {
+        outstr.width(3);
+        outstr << p[i + j*d] << ",";
+      }
+      outstr << ";\n     ";
+    }
+    outstr << "];\n";
+  }
+
   void base_dense::saxpy (const base_dense & B, double alpha) {
     if (alpha == 0)
       return;
